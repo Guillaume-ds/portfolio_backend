@@ -10,6 +10,7 @@ if os.path.isfile(dotenv_file):
     
 account_key = os.environ['account_key']
 
+
 class AzureMediaStorage(AzureStorage):
     account_name = 'portfolioguillaume'
     account_key = account_key
