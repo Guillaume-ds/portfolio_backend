@@ -5,8 +5,10 @@ import projects.views
 import contact.views
 import experiences.views
 
+router = routers.DefaultRouter()
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('projects/',projects.views.ProjectsList.as_view()),
     path('experiences/',experiences.views.ExperiencesList.as_view()),
     path('contact/',contact.views.Contact.as_view()),
