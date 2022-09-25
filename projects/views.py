@@ -46,6 +46,12 @@ class ProjectsList(ListAPIView):
                 queryset = queryset.filter(content__icontains=keywords)
             else:None      
         except: None 
+        try:   
+            if request.data['slug'] != None:
+                slug = request.data['slug']
+                queryset = queryset.filter(slug=slug)
+            else:None       
+        except:None
         
         serializer = ProjectSerializer(queryset,many=True)
         return Response(serializer.data, status = status.HTTP_200_OK)
