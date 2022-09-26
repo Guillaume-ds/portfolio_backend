@@ -15,5 +15,6 @@ class Project(models.Model):
     picture = models.ImageField(upload_to=project_image_directory_path, default='', max_length=1000, blank=True)
     tags = ArrayField(models.CharField(max_length=200), blank=True, default=list)
     language = ArrayField(models.CharField(max_length=200), blank=True, default=list)
+    orderNum = models.IntegerField(default=1)
     def __str__(self):
         return self.title

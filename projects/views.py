@@ -11,7 +11,7 @@ class ProjectsViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows projects to be viewed or edited.
     """
-    queryset = Project.objects.all().order_by('created_on')
+    queryset = Project.objects.all().order_by('orderNum')
     serializer_class = ProjectSerializer
     
 
@@ -21,12 +21,12 @@ class ProjectsList(ListAPIView):
     """
     
     def get(self,request):
-        queryset = Project.objects.all().order_by('created_on')
+        queryset = Project.objects.all().order_by('orderNum')
         serializer = ProjectSerializer(queryset,many=True)
         return Response(serializer.data, status = status.HTTP_200_OK)
     
     def post(self,request):
-        queryset = Project.objects.all().order_by('created_on')
+        queryset = Project.objects.all().order_by('orderNum')
         
         try:  
             if (request.data['tags'] != None and request.data['tags'] != [""] and type(request.data['tags'])==list):
