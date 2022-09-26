@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 from django.contrib.postgres.fields import ArrayField
 
 def project_image_directory_path(instance, filename):
@@ -18,3 +19,4 @@ class Project(models.Model):
     orderNum = models.IntegerField(default=1)
     def __str__(self):
         return self.title
+    
